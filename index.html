@@ -13,10 +13,9 @@ body {
     font-family: "Trebuchet MS", sans-serif;
 }
 
-/* Instagram button */
+/* кнопка */
 .insta-link {
     display: inline-block;
-    font-align: right;
 
     font-size: 40px;
     text-decoration: none;
@@ -25,9 +24,8 @@ body {
     border: 2px solid rgb(247, 249, 252);
     border-radius: 15px;
 
-    padding-right: 40px;
-    padding-top: 50px;
-    margin-bottom: 40px;
+    padding: 20px 40px;
+    margin-bottom: 10px;
 
     transition: 0.2s;
 }
@@ -37,13 +35,21 @@ body {
     border-color: rgb(175, 136, 181);
 }
 
-/* Two columns */
+/* текст */
+.text_insta_location {
+    font-size: 30px;
+    color: rgb(250, 250, 250);
+    text-align: right;
+    margin: 0 30px 5px 0;
+}
+
+/* колонки */
 .photo-columns {
     display: flex;
     gap: 30px;
 }
 
-/* Scrollable containers */
+/* галерея */
 .gallery {
     flex: 1;
     height: 700px;
@@ -54,42 +60,65 @@ body {
     border-radius: 15px;
 
     padding: 15px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
 }
 
-/* Gallery titles */
 .gallery h2 {
+    grid-column: span 4;
     color: white;
     text-align: center;
-    margin-top: 0;
+    margin: 0 0 10px 0;
 }
 
-/* Images */
+/* картинки */
 .gallery img {
     width: 100%;
-    border-radius: 12px;
-    margin-bottom: 25px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
-.text_insta_location {
-    font-size: 30px;
-    color: rgb(250, 250, 250);
-    font-align: right;
-    padding-top: 20px;
-    padding-right: 30px;
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* fullscreen */
+#fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.9);
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+#fullscreen img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 15px;
 }
 
 </style>
 </head>
 
 <body>
-    <p class="text_insta_location"> All of my photos are here, in Instagram </p>
 
-<a
-    href="https://www.instagram.com/danyii_ii"
-    target="_blank"
-    class="insta-link"
->
-    My Insta
+<p class="text_insta_location">
+    All of my photos are here, in Instagram
+</p>
+
+<a href="https://www.instagram.com/danyii_ii"
+   target="_blank"
+   class="insta-link">
+   My Insta
 </a>
 
 <div class="photo-columns">
@@ -97,20 +126,42 @@ body {
     <div class="gallery">
         <h2>Phone Photography</h2>
 
-        <img src="photos/A pine tree - S23U-1.jpg" alt="Phone photo">
-        <img src="photos/Flowers over a lamp - A54.jpg" alt="Phone photo">
-        <img src="" alt="Phone photo">
+        <img src="photos/A pine tree - S23U-1.jpg">
+        <img src="photos/Flowers over a lamp - A54.jpg">
     </div>
 
     <div class="gallery">
         <h2>Professional Camera Photography</h2>
 
-        <img src="photos/A little church framed between trees - Sony a 7 R iii-1.jpg" alt="Camera photo">
-        <img src="photos/A tavern - Sony a 7 R iii-1.jpg" alt="Camera photo">
-        <img src="photos/Mirror like a portal- Sony a 7 R iii-1.jpg" alt="Camera photo">
+        <img src="photos/A little church framed between trees - Sony a 7 R iii-1.jpg">
+        <img src="photos/A tavern - Sony a 7 R iii-1.jpg">
     </div>
 
 </div>
+
+<!-- fullscreen -->
+<div id="fullscreen">
+    <img id="full-img">
+</div>
+
+<script>
+
+const images = document.querySelectorAll(".gallery img");
+const fullscreen = document.getElementById("fullscreen");
+const fullImg = document.getElementById("full-img");
+
+images.forEach(img => {
+    img.addEventListener("click", () => {
+        fullscreen.style.display = "flex";
+        fullImg.src = img.src;
+    });
+});
+
+fullscreen.addEventListener("click", () => {
+    fullscreen.style.display = "none";
+});
+
+</script>
 
 </body>
 </html>
