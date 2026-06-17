@@ -8,72 +8,59 @@
 
 body {
     margin: 0;
-    padding: 30px;
-    background-color: rgb(39, 40, 43);
+    padding: 20px;
+    background: #0f1115;
     font-family: "Trebuchet MS", sans-serif;
+    color: white;
 }
 
+/* TOP 4 PHOTOS */
+.top-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
 
-.insta-link {
-    display: inline-block;
-    position: absolute, right;
-
-    font-size: 40px;
-    text-decoration: none;
-    color: white;
-
-    border: 2px solid rgb(247, 249, 252);
+.top-gallery img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
     border-radius: 15px;
-
-    padding: 20px 40px;
-    margin-bottom: 10px;
-
+    cursor: pointer;
     transition: 0.2s;
 }
 
-.insta-link:hover {
-    color: rgb(203, 195, 227);
-    border-color: rgb(175, 136, 181);
+.top-gallery img:hover {
+    transform: scale(1.03);
 }
 
-
-.text_insta_location {
-    font-size: 30px;
-    color: rgb(250, 250, 250);
-    text-align: left;
-    margin: 0 30px 5px 0;
-}
-
-
+/* MAIN GALLERY */
 .photo-columns {
     display: flex;
-    gap: 30px;
+    gap: 20px;
 }
-
 
 .gallery {
     flex: 1;
-    height: 700px;
-
+    height: 600px;
     overflow-y: auto;
 
-    border: 2px solid rgb(247, 249, 252);
+    border: 1px solid #2f3b55;
     border-radius: 15px;
 
-    padding: 15px;
+    padding: 10px;
 
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
 }
 
 .gallery h2 {
-    grid-column: span 4;
-    color: white;
+    grid-column: span 2;
     text-align: center;
-    margin: 0 0 10px 0;
+    color: #8ab4ff;
 }
-
 
 .gallery img {
     width: 100%;
@@ -86,7 +73,7 @@ body {
     transform: scale(1.05);
 }
 
-
+/* FULLSCREEN */
 #fullscreen {
     position: fixed;
     top: 0;
@@ -94,18 +81,54 @@ body {
     width: 100%;
     height: 100%;
 
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.8);
 
     display: none;
     justify-content: center;
     align-items: center;
-    backdrop-filter: blur(10px);
+    flex-direction: column;
 }
 
 #fullscreen img {
-    max-width: 90%;
-    max-height: 90%;
+    max-width: 85%;
+    max-height: 80%;
     border-radius: 15px;
+}
+
+/* ARROWS */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 50px;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    padding: 10px;
+}
+
+.left { left: 30px; }
+.right { right: 30px; }
+
+/* INSTAGRAM */
+.insta {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.insta a {
+    color: #8ab4ff;
+    font-size: 20px;
+    text-decoration: none;
+    border: 1px solid #8ab4ff;
+    padding: 10px 25px;
+    border-radius: 10px;
+    transition: 0.2s;
+}
+
+.insta a:hover {
+    background: #8ab4ff;
+    color: black;
 }
 
 </style>
@@ -113,87 +136,91 @@ body {
 
 <body>
 
-<p class="text_insta_location">
-    All of my photos are here, in Instagram
-</p>
+<!-- TOP 4 BEST PHOTOS -->
+<div class="top-gallery">
+    <img src="photos/A pine tree - S23U-1.jpg">
+    <img src="photos/Blossom flowers - S23U.jpg">
+    <img src="photos/A tavern - Sony a 7 R iii-1.jpg">
+    <img src="photos/Mirror  1 - Sony a 7 R iii-1.jpg">
+</div>
 
-<a href="https://www.instagram.com/danyii_ii"
-   target="_blank"
-   class="insta-link">
-   My Insta
-</a>
-
+<!-- MAIN GALLERY -->
 <div class="photo-columns">
 
     <div class="gallery">
-        <h2>Phone Photography</h2>
+        <h2>Phone</h2>
 
         <img src="photos/A pine tree - S23U-1.jpg">
         <img src="photos/Flowers over a lamp - A54.jpg">
         <img src="photos/A flat house - S23U-1.jpg">
         <img src="photos/Beautiful treee shot llanes - S23U-1.jpg">
-        <img src="photos/Blossom flowers - S23U.jpg">
-        <img src="photos/Car next to a mountain view - S23U-1.jpg">
-        <img src="photos/Cherry blossom flowers - S23U.jpg">
-        <img src="photos/Lamp in between Wisteria - A54.jpg">
-        <img src="photos/Llanes beach ocean view composition- S23U-1.jpg">
-        <img src="photos/Llanes beach ocean view- S23U-1.jpg">
-        
-        
-        
     </div>
 
     <div class="gallery">
-        <h2>Professional Camera Photography</h2>
+        <h2>Camera</h2>
 
-        <img src="photos/A little church framed between trees - Sony a 7 R iii-1.jpg">
         <img src="photos/A tavern - Sony a 7 R iii-1.jpg">
         <img src="photos/A lonely treel- Sony a 7 R iii-1.jpg">
-        <img src="photos/A road leeding into the mystery - Sony a 7 R iii-1.jpg">
-        <img src="photos/Mirror like a portal- Sony a 7 R iii-1.jpg">
-        <img src="photos/A cool blue atmospere, a red car going by the highway - Sony a 7 R iii-1.jpg">
-        <img src="photos/A lantern during golden hour -  Sony a 7 R iii-1.jpg">
-        <img src="photos/A mini fountain in hills - Sony a 7 R iii-1.jpg">
-        <img src="photos/A street lamp at evening-  Sony a 7 R iii-1.jpg">
-        <img src="photos/A tunnel with lights in it -  Sony a 7 R iii-1.jpg">
-        <img src="photos/Church's cross (golden hour)l- Sony a 7 R iii-1.jpg">
-        <img src="photos/Close to the sariego church (golden hour)l- Sony a 7 R iii-1.jpg">
-        <img src="photos/Flowers on a flower tree (golden hour) - Sony a 7 R iii-1.jpg">
-        <img src="photos/Golde moss on the tree - Sony a 7 R iii-1.jpg">
-        <img src="photos/Llittle church (Sariego) - Sony a 7 R iii-1.jpg">
         <img src="photos/Mirror  1 - Sony a 7 R iii-1.jpg">
         <img src="photos/Mirror  2 - Sony a 7 R iii-1.jpg">
-        <img src="photos/Mirror  3 - Sony a 7 R iii-1.jpg">
-        <img src="photos/Mirror 4 -  Sony a 7 R iii-1.jpg">
-        <img src="photos/Trucks light making lines with long exposure - Sony a 7 R iii-1.jpg">
-        <img src="photos/Two benches in the church (golden hour) - Sony a 7 R iii-1.jpg">
-        
-        
-        
     </div>
 
 </div>
 
-
+<!-- FULLSCREEN VIEW -->
 <div id="fullscreen">
+    <div class="arrow left">&#10094;</div>
     <img id="full-img">
+    <div class="arrow right">&#10095;</div>
+</div>
+
+<!-- INSTAGRAM -->
+<div class="insta">
+    <p>More photos here:</p>
+    <a href="https://www.instagram.com/danyii_ii" target="_blank">
+        @danyii_ii
+    </a>
 </div>
 
 <script>
 
-const images = document.querySelectorAll(".gallery img");
+const images = document.querySelectorAll("img");
 const fullscreen = document.getElementById("fullscreen");
 const fullImg = document.getElementById("full-img");
 
-images.forEach(img => {
+let currentIndex = 0;
+let imgArray = [];
+
+images.forEach((img, index) => {
+    imgArray.push(img.src);
+
     img.addEventListener("click", () => {
-        fullscreen.style.display = "flex";
-        fullImg.src = img.src;
+        currentIndex = index;
+        showImage();
     });
 });
 
-fullscreen.addEventListener("click", () => {
-    fullscreen.style.display = "none";
+function showImage() {
+    fullscreen.style.display = "flex";
+    fullImg.src = imgArray[currentIndex];
+}
+
+document.querySelector(".left").onclick = () => {
+    currentIndex--;
+    if (currentIndex < 0) currentIndex = imgArray.length - 1;
+    showImage();
+};
+
+document.querySelector(".right").onclick = () => {
+    currentIndex++;
+    if (currentIndex >= imgArray.length) currentIndex = 0;
+    showImage();
+};
+
+fullscreen.addEventListener("click", (e) => {
+    if (e.target === fullscreen) {
+        fullscreen.style.display = "none";
+    }
 });
 
 </script>
