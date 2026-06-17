@@ -6,15 +6,16 @@
 
 <style>
 
+/* BODY */
 body {
     margin: 0;
     background: white;
     font-family: "Trebuchet MS", sans-serif;
 }
 
-/* CENTER CONTENT */
+/* CENTER */
 .container {
-    max-width: 1200px;
+    max-width: 1100px; /* ВУЖЧЕ */
     margin: auto;
     padding: 40px 0;
 }
@@ -22,49 +23,37 @@ body {
 /* TITLE */
 h1 {
     text-align: center;
-    margin-bottom: 50px;
-    letter-spacing: 2px;
+    margin-bottom: 60px;
 }
 
 /* TOP 4 */
 .top-gallery {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-    margin-bottom: 60px;
+    gap: 30px;
+    margin-bottom: 80px;
 }
 
 .top-gallery img {
-    width: 100%;
-    height: 320px;
-    object-fit: cover;
+    width: 100%; /* FIX */
+    height: 340px;
 
-    /* SHARP EDGES */
-    border-radius: 0;
-
-    /* CONTRAST STYLE */
     border: 3px solid black;
     filter: contrast(1.1);
 
     cursor: pointer;
-    transition: 0.3s;
 }
 
-.top-gallery img:hover {
-    transform: scale(1.02);
-}
-
-/* MASONRY 3 COL */
+/* MAIN GALLERY */
 .gallery {
     column-count: 3;
-    column-gap: 30px;
+    column-gap: 40px; /* БІЛЬШЕ ПРОСТОРУ */
 }
 
 .gallery img {
     width: 100%;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 
-    border-radius: 0;
     break-inside: avoid;
 
     cursor: pointer;
@@ -72,8 +61,7 @@ h1 {
 }
 
 .gallery img:hover {
-    transform: scale(1.02);
-    filter: brightness(1.05);
+    transform: scale(1.03);
 }
 
 /* FULLSCREEN */
@@ -99,32 +87,26 @@ h1 {
     font-size: 60px;
     color: white;
     cursor: pointer;
-    padding: 20px;
 }
 
 .left { left: 50px; }
 .right { right: 50px; }
 
-/* SIDE SPACE (future links area) */
-.side-left, .side-right {
-    position: fixed;
-    top: 0;
-    width: 180px;
-    height: 100%;
-    pointer-events: none;
-}
-
-/* INSTAGRAM */
+/* 👉 INSTAGRAM RIGHT SIDE */
 .insta {
-    text-align: center;
-    margin-top: 80px;
+    position: fixed;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+
+    font-size: 18px;
 }
 
 .insta a {
     text-decoration: none;
     color: black;
     border-bottom: 2px solid black;
-    font-size: 18px;
+    padding: 5px;
 }
 
 .insta a:hover {
@@ -142,7 +124,7 @@ h1 {
 
 <div class="container">
 
-<h1>RECENT WORK</h1>
+<h1>BEST SHOTS</h1>
 
 <!-- TOP 4 -->
 <div class="top-gallery">
@@ -151,9 +133,11 @@ h1 {
     <img src="photos/A tavern - Sony a 7 R iii-1.jpg">
     <img src="photos/Mirror 1 - Sony a 7 R iii-1.jpg">
 </div>
+    <hr>
 
 <!-- ALL PHOTOS -->
 <div class="gallery">
+    <h1> ALL OF MY PHOTOS</h1>
 
 <img src="photos/A pine tree - S23U-1.jpg">
 <img src="photos/Flowers over a lamp - A54.jpg">
