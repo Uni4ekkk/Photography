@@ -6,62 +6,58 @@
 
 <style>
 
-/* BODY */
 body {
     margin: 0;
     background: white;
     font-family: "Trebuchet MS", sans-serif;
 }
 
-/* CENTER */
 .container {
-    max-width: 1100px; /* ВУЖЧЕ */
+    max-width: 1000px;
     margin: auto;
-    padding: 40px 0;
+    padding: 60px 0;
 }
 
-/* TITLE */
 h1 {
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 70px;
 }
 
-/* TOP 4 */
+/* TOP GRID */
 .top-gallery {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    grid-template-columns: 1.2fr 1fr;
+    grid-auto-rows: 220px;
+    gap: 25px;
     margin-bottom: 80px;
 }
 
 .top-gallery img {
-    width: 100%; /* FIX */
-    height: 340px;
-
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     border: 3px solid black;
-    filter: contrast(1.1);
-
     cursor: pointer;
 }
 
-/* MAIN GALLERY */
+/* shapes */
+.big { grid-row: span 2; }
+.tall { grid-row: span 2; }
+.wide {}
+.square {}
+
+/* MASONRY */
 .gallery {
     column-count: 3;
-    column-gap: 40px; /* БІЛЬШЕ ПРОСТОРУ */
+    column-gap: 40px;
 }
 
 .gallery img {
     width: 100%;
     margin-bottom: 40px;
-
+    display: block;
     break-inside: avoid;
-
     cursor: pointer;
-    transition: 0.25s;
-}
-
-.gallery img:hover {
-    transform: scale(1.03);
 }
 
 /* FULLSCREEN */
@@ -89,29 +85,22 @@ h1 {
     cursor: pointer;
 }
 
-.left { left: 50px; }
-.right { right: 50px; }
+.left { left: 40px; }
+.right { right: 40px; }
 
-/* 👉 INSTAGRAM RIGHT SIDE */
+/* INSTAGRAM RIGHT */
 .insta {
     position: fixed;
-    right: 40px;
+    right: 30px;
     top: 50%;
     transform: translateY(-50%) rotate(90deg);
-
-    font-size: 18px;
 }
 
 .insta a {
     text-decoration: none;
     color: black;
     border-bottom: 2px solid black;
-    padding: 5px;
-}
-
-.insta a:hover {
-    color: #3b82f6;
-    border-color: #3b82f6;
+    font-size: 18px;
 }
 
 </style>
@@ -119,25 +108,20 @@ h1 {
 
 <body>
 
-<div class="side-left"></div>
-<div class="side-right"></div>
-
 <div class="container">
 
 <h1>BEST SHOTS</h1>
 
-<!-- TOP 4 -->
 <div class="top-gallery">
-    <img src="photos/A pine tree - S23U-1.jpg">
-    <img src="photos/Blossom flowers - S23U.jpg">
-    <img src="photos/A tavern - Sony a 7 R iii-1.jpg">
-    <img src="photos/Mirror 1 - Sony a 7 R iii-1.jpg">
+    <img class="big" src="photos/A pine tree - S23U-1.jpg">
+    <img class="wide" src="photos/Blossom flowers - S23U.jpg">
+    <img class="square" src="photos/A tavern - Sony a 7 R iii-1.jpg">
+    <img class="tall" src="photos/Mirror 1 - Sony a 7 R iii-1.jpg">
 </div>
-    <hr>
 
-<!-- ALL PHOTOS -->
+<h1>ALL OF MY PHOTOS</h1>
+
 <div class="gallery">
-    <h1> ALL OF MY PHOTOS</h1>
 
 <img src="photos/A pine tree - S23U-1.jpg">
 <img src="photos/Flowers over a lamp - A54.jpg">
@@ -154,21 +138,18 @@ h1 {
 
 </div>
 
-<!-- FULLSCREEN -->
+</div>
+
 <div id="fullscreen">
     <div class="arrow left">&#10094;</div>
     <img id="full-img">
     <div class="arrow right">&#10095;</div>
 </div>
 
-<!-- INSTAGRAM -->
 <div class="insta">
-    <p>More on Instagram</p>
     <a href="https://www.instagram.com/danyii_ii" target="_blank">
         @danyii_ii
     </a>
-</div>
-
 </div>
 
 <script>
@@ -185,23 +166,19 @@ images.forEach((img, index) => {
 
     img.addEventListener("click", () => {
         currentIndex = index;
-        showImage();
+        fullscreen.style.display = "flex";
+        fullImg.src = imgArray[currentIndex];
     });
 });
 
-function showImage() {
-    fullscreen.style.display = "flex";
-    fullImg.src = imgArray[currentIndex];
-}
-
 document.querySelector(".left").onclick = () => {
     currentIndex = (currentIndex - 1 + imgArray.length) % imgArray.length;
-    showImage();
+    fullImg.src = imgArray[currentIndex];
 };
 
 document.querySelector(".right").onclick = () => {
     currentIndex = (currentIndex + 1) % imgArray.length;
-    showImage();
+    fullImg.src = imgArray[currentIndex];
 };
 
 fullscreen.addEventListener("click", (e) => {
