@@ -13,50 +13,54 @@ body {
 }
 
 .container {
-    max-width: 1000px;
+    max-width: 1200px; /* ширше зробив */
     margin: auto;
-    padding: 60px 0;
+    padding: 60px 20px;
 }
 
 h1 {
     text-align: center;
-    margin-bottom: 70px;
+    margin-bottom: 50px;
 }
 
-/* 🔥 TOP GALLERY (тепер фото підлаштовуються) */
+/* TOP GRID */
 .top-gallery {
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 25px;
     margin-bottom: 80px;
 }
 
-/* ГОЛОВНЕ */
 .top-gallery img {
     width: 100%;
-    height: auto; /* 🔥 тепер форма від фото */
-    display: block;
+    height: 320px;
+    object-fit: cover;
     border: 3px solid black;
     cursor: pointer;
+    transition: 0.3s;
 }
 
-/* ❌ більше не потрібно */
-.big, .tall, .wide, .square {
-    grid-row: auto;
+.top-gallery img:hover {
+    transform: scale(1.03);
 }
 
-/* 🔥 MASONRY */
+/* MAIN GALLERY */
 .gallery {
-    column-count: 3;
-    column-gap: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
 }
 
 .gallery img {
     width: 100%;
-    margin-bottom: 40px;
-    display: block;
-    break-inside: avoid;
+    height: 250px;
+    object-fit: cover;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.03);
 }
 
 /* FULLSCREEN */
@@ -112,44 +116,44 @@ h1 {
 <h1>BEST SHOTS</h1>
 
 <div class="top-gallery">
-    <img class="big" src="photos/Trucks light making lines with long exposure - Sony a 7 R iii-1.jpg">
-    <img class="wide" src="photos/Mirror 4 -  Sony a 7 R iii-1.jpg">
-    <img class="square" src="photos/Car trailer between spikelets - Landscape.jpg">
-    <img class="tall" src="photos/A lonely treel- Sony a 7 R iii-1.jpg">
+    <img src="photos/Trucks light making lines with long exposure - Sony a 7 R iii-1">
+    <img src="photos/Mirror 4 -  Sony a 7 R iii-1">
+    <img src="photos/Car trailer between spikelets - Landscape.jpg">
+    <img src="photos/A lonely treel- Sony a 7 R iii-1">
 </div>
 
 <h1>ALL OF MY PHOTOS</h1>
 
 <div class="gallery">
 
-<img src="photos/A black audi- Sony a 7 R iii-1.jpg">
+<img src="photos/A black audi- Sony a 7 R iii-1">
 <img src="photos/Flowers over a lamp - A54.jpg">
-<img src="photos/A cool blue atmospere, a red car going by the highway - Sony a 7 R iii-1.jpg">
-<img src="photos/A cool tunnel in golden hour - Sony a 7 R iii-1.jpg">
+<img src="photos/A cool blue atmospere, a red car going by the highway - Sony a 7 R iii-1">
+<img src="photos/A cool tunnel in golden hour - Sony a 7 R iii-1">
 <img src="photos/Cherry blossom flowers - S23U.jpg">
-<img src="photos/A field framed with curled fence- Sony a 7 R iii-1.jpg">
+<img src="photos/A field framed with curled fence- Sony a 7 R iii-1">
 
-<img src="photos/A lantern during golden hour -  Sony a 7 R iii-1.jpg">
-<img src="photos/A little church framed between trees - Sony a 7 R iii-1.jpg">
-<img src="photos/A mini fountain in hills - Sony a 7 R iii-1.jpg">
-<img src="photos/A sign in golden hour  - Sony a 7 R iii-1.jpg">
-<img src="photos/A street lamp at evening-  Sony a 7 R iii-1.jpg">
-<img src="photos/A tavern - Sony a 7 R iii-1.jpg">
-    <img src="photos/A tunnel with lights in it -  Sony a 7 R iii-1.jpg">
-    <img src="photos/Audi llghts - Sony a 7 R iii-1.jpg">
-    <img src="photos/Church's cross (golden hour)l- Sony a 7 R iii-1.jpg">
-    <img src="photos/Close to the sariego church (golden hour)l- Sony a 7 R iii-1.jpg">
-    <img src="photos/Flowers on a flower tree (golden hour) - Sony a 7 R iii-1.jpg">
-    <img src="photos/Golde moss on the tree - Sony a 7 R iii-1.jpg">
-    <img src="photos/Llittle church (Sariego) - Sony a 7 R iii-1.jpg">
-    <img src="photos/Mirror  1 - Sony a 7 R iii-1.jpg">
-    <img src="photos/Mirror  2 - Sony a 7 R iii-1.jpg">
-    <img src="photos/Mirror  3 - Sony a 7 R iii-1.jpg">
-    <img src="photos/Mirror like a portal- Sony a 7 R iii-1.jpg">
-    <img src="photos/Oviedo club sign - Sony a 7 R iii-1.jpg">
-    <img src="photos/Peakj mirror photo - Sony a 7 R iii-1.jpg">
-    <img src="photos/Two benches in the church (golden hour) - Sony a 7 R iii-1.jpg">
-   
+<img src="photos/A lantern during golden hour -  Sony a 7 R iii-1">
+<img src="photos/A little church framed between trees - Sony a 7 R iii-1">
+<img src="photos/A mini fountain in hills - Sony a 7 R iii-1">
+<img src="photos/A sign in golden hour  - Sony a 7 R iii-1">
+<img src="photos/A street lamp at evening-  Sony a 7 R iii-1">
+<img src="photos/A tavern - Sony a 7 R iii-1">
+<img src="photos/A tunnel with lights in it -  Sony a 7 R iii-1">
+<img src="photos/Audi llghts - Sony a 7 R iii-1">
+<img src="photos/Church's cross (golden hour)l- Sony a 7 R iii-1">
+<img src="photos/Close to the sariego church (golden hour)l- Sony a 7 R iii-1">
+<img src="photos/Flowers on a flower tree (golden hour) - Sony a 7 R iii-1">
+<img src="photos/Golde moss on the tree - Sony a 7 R iii-1">
+<img src="photos/Llittle church (Sariego) - Sony a 7 R iii-1">
+<img src="photos/Mirror  1 - Sony a 7 R iii-1">
+<img src="photos/Mirror  2 - Sony a 7 R iii-1">
+<img src="photos/Mirror  3 - Sony a 7 R iii-1">
+<img src="photos/Mirror like a portal- Sony a 7 R iii-1">
+<img src="photos/Oviedo club sign - Sony a 7 R iii-1">
+<img src="photos/Peakj mirror photo - Sony a 7 R iii-1">
+<img src="photos/Two benches in the church (golden hour) - Sony a 7 R iii-1">
+
 </div>
 
 </div>
